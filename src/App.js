@@ -3,6 +3,8 @@ import Flights from "./Components/Flights";
 import SearchBar from "./Components/SearchBar";
 import { useEffect, useState } from "react";
 import Term from "./Components/Term";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './App.css';
 
 
 function App() {
@@ -88,12 +90,19 @@ function App() {
   }, [cityFrom, cityTo]);
     
   return (
-    <div>
-      <SearchBar setValue={setCityFrom} type={departure} name={'From: '}/>
-      <SearchBar setValue={setCityTo} type={destination} name={'To: '}/>
-      <Term />
-      {flights && <Flights flights={flights} cityTo={cityTo}/>}
-    </div>
+      <div >
+        <h1 className='text-center mt-3'> Happy Flight</h1>
+        <div className=" d-flex flex-row m-4 justify-content-center mx-3 ">
+
+         <div className='mx-3 '> <SearchBar    setValue={setCityFrom} type={departure} name={'From: '}/></div>
+          <SearchBar setValue={setCityTo} type={destination} name={'To: '}/>
+
+          <Term />
+        </div>
+       <div className='d-flex justify-content-center'> { flights && <Flights flights={flights} cityTo={cityTo}/>}</div>
+
+      </div>
+
   );
 }
 export default App;

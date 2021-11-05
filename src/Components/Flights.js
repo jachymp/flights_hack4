@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css'
 import { DateTime } from 'luxon';
 
 function Flights({flights}) {
@@ -6,10 +7,11 @@ function Flights({flights}) {
 
   return (
     <div>
-            <table>
+            <table className='table  thead-dark'>
                 <tbody>
-                    <tr>
-                        <th>From</th>
+
+                    <tr className='table-dark' >
+                        <th scope="col">From</th>
                         <th>To</th>
                         <th>Departure time</th>
                         <th>Arrival time</th>
@@ -31,7 +33,7 @@ function Flights({flights}) {
                                         )}
                                     </td>
                                     <td>{flight.price} EUR</td>
-                                    {/* <td>{flight.routes.length == 1 ? 'Direct' : flight.routes.length - 1}</td> */}
+                                     <td>{flight.routes.length == 1 ? 'Direct' : flight.routes.length - 1}</td>
                                 </tr>
                     ))}
 
